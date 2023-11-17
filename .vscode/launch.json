@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            // "program": "/data/data2/khahn/coco_irra_phrase_masking_3/train_graph.py",
+            "program": "/data/data2/khahn/coco_irra_phrase_masking_3/train_tokengt.py",
+            // "program": "/data/data2/khahn/coco_irra_phrase_masking_3/train_image.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args":[
+            "--name","irra",
+            "--img_aug",
+            // "--batch_size", "360",
+            // "--batch_size", "1",
+            "--batch_size", "32",
+            "--MLM",
+            "--loss_names", "mse",
+            // "--loss_names", "sdm+mlm",
+            "--dataset_name", "COCO",
+            "--root_dir", "/data/data2/IRRA",
+            "--num_epoch", "70",
+            "--vocab_size", "28966",
+            "--encoder-embed-dim", "1024",
+            "--encoder-layers", "12",
+            "--encoder-attention-heads", "16",
+            "--encoder-ffn-embed-dim", "4096",
+            "--dropout", "0.1",
+            "--attention-dropout", "0.1",
+            "--act-dropout", "0.0",
+            "--lr", "3.75e-05",
+            "--data_path", "/data/data2/IRRA/COCO/images/",
+            "--mask_ratio", "0.75",
+            // "--model", "pretrain_mae_small_patch16_224",
+            "--model", "/data/data2/khahn/coco_irra_phrase_masking_2/mae/output/pretrain_mae_small_patch16_224",
+            "--input_size", "224",
+            // "--opt_betas", "0.9", "0.95",
+            // "--warmup_epochs", "40",
+            // "--epochs", "1600",
+            // "--output_dir", "/data/data2/khahn/rstpreid_subgraph_masking_2/MAE-pytorch/output/pretrain_mae_small_patch16_224"
+            ],
+            "env": {
+                "OMP_NUM_THREADS": "1"
+            },  
+        }
+    ]
+}
+

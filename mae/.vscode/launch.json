@@ -1,0 +1,63 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+        
+//         {
+//             "name": "Python: Current File",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "/data/data2/khahn/rstpreid_subgraph_masking_2/MAE-pytorch/run_mae_pretraining.py",
+
+//             "console": "integratedTerminal",
+//             "justMyCode": true,
+//             "args":[
+//             ""
+//             "--nproc_per_node", "8",
+//             "--data_path", "/data/data2/khahn/MGM_train/data/RSTPReid/imgs",
+//             "--mask_ratio", "0.75",
+//             "--model", "pretrain_mae_base_patch16_224",
+//             "--batch_size", "128",
+//             "--opt", "adamw",
+//             "--opt_betas", "0.9", "0.95",
+//             "--warmup_epochs", "40",
+//             "--epochs", "1600" ,
+//             "--output_dir", "/data/data2/khahn/rstpreid_subgraph_masking_2/MAE-pytorch/output/pretrain_mae_base_patch16_224",
+//             ]   
+//         }
+//     ]
+// }
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: MAE Pretraining",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_mae_pretraining.py",
+            "args": [
+                // "--data_path", "/data/data2/khahn/data/train/",
+                // "--data_path", "/data/data2/khahn/MGM_train/data/RSTPReid/imgs/",
+                // "--data_path", "/data/data2/data/rstpreid_image/",
+                "--data_path", "/data/data2/IRRA/COCO/images/",
+                "--mask_ratio", "0.75",
+                // "--model", "pretrain_mae_base_patch16_224",
+                "--model", "pretrain_mae_small_patch16_224",
+                "--batch_size", "64",
+                // "--batch_size", "1",
+                "--opt", "adamw",
+                "--opt_betas", "0.9", "0.95",
+                "--warmup_epochs", "40",
+                "--epochs", "1600",
+                // "--output_dir", "/data/data2/khahn/rstpreid_subgraph_masking_2/MAE-pytorch/output/pretrain_mae_base_patch16_224"
+                "--output_dir", "/data/data2/khahn/rstpreid_subgraph_masking_2/MAE-pytorch/output/pretrain_mae_small_patch16_224"
+            ],
+            "env": {
+                "OMP_NUM_THREADS": "1"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}
